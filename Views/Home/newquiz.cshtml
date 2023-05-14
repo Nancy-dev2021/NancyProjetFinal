@@ -1,0 +1,51 @@
+﻿@model ProjetFinal.Models.Quiz
+
+@{
+    ViewData["Title"] = "newquiz";
+}
+
+<h1>newquiz</h1>
+
+<h4>Quiz</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AjoutQuiz">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="nbQuestionsFaciles">Nombre des questions de type Facile</label>
+                <input name="nbQuestionsFaciles" type="number" />
+            </div>
+            <div class="form-group">
+                <label for="nbQuestionsMoyennes">Nombre des questions de type Moyen</label>
+                <input name="nbQuestionsMoyennes" type="number" />
+            </div>
+            <div class="form-group">
+                <label for="nbQuestionsDifficiles">Nombre des questions de type Difficile</label>
+                <input name="nbQuestionsDifficiles" type="number" />
+            </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Générer" class="btn btn-primary" />
+                </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

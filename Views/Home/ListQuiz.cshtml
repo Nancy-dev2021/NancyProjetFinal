@@ -1,0 +1,21 @@
+﻿@model IEnumerable<ProjetFinal.Models.Quiz>
+
+@{
+    ViewData["Title"] = "ListQuiz";
+}
+
+
+<h4>Choisir un quiz</h4>
+<table class="table">
+    
+    
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.ActionLink(" Quiz " + item.QuizId, "answerQuiz", new { QuizId = item.QuizId })
+            </td>
+            
+        </tr>
+}
+    
+</table>
